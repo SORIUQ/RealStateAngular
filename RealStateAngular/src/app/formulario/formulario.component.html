@@ -1,0 +1,19 @@
+<form [formGroup]="formularioBienvenida" (ngSubmit)="onSubmit()">
+
+    <label for="nombre">Nombre usuario: </label>
+    <input id="nombre" type="text" formControlName="nombre">
+
+    <label for="apellidos">Apellidos: </label>
+    <input id="apellidos" type="text" formControlName="apellidos">  
+    
+    <label for="edad">Edad: </label>
+    <input id="edad" type="number" formControlName="edad">
+
+    <label for="email">Email: </label>
+    <input id="email" type="email" formControlName="email" >
+
+    <label for="condiciones">Condiciones:</label>
+    <input id="condiciones" type="checkbox" formControlName="condiciones">
+
+    <button class="button" type="submit">Registrarse</button>
+</form>

@@ -1,9 +1,12 @@
 <main>
-  <a [routerLink]="['/']">
-    <header class="brand-name">
+  <!-- Le cambio el link a la imagen como tal, si no no puedo poner el otro en la cabezera -->
+  <header class="brand-name">
+    <a [routerLink]="['/']">
       <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
-    </header>
-  </a>
+    </a>
+    <!-- Link que nos lleva al formulario -->
+    <a [routerLink]="['/formulario']">Formulario</a>
+  </header>
   <section class="content">
     <router-outlet></router-outlet>
   </section>
