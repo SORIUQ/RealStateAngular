@@ -1,19 +1,45 @@
-<form [formGroup]="formularioBienvenida" (ngSubmit)="onSubmit()">
-
-    <label for="nombre">Nombre usuario: </label>
-    <input id="nombre" type="text" formControlName="nombre">
-
-    <label for="apellidos">Apellidos: </label>
-    <input id="apellidos" type="text" formControlName="apellidos">  
-    
-    <label for="edad">Edad: </label>
-    <input id="edad" type="number" formControlName="edad">
-
-    <label for="email">Email: </label>
-    <input id="email" type="email" formControlName="email" >
-
-    <label for="condiciones">Condiciones:</label>
-    <input id="condiciones" type="checkbox" formControlName="condiciones">
-
-    <button class="button" type="submit">Registrarse</button>
-</form>
+<form [formGroup]="formularioBienvenida" (ngSubmit)="onSubmit()" class="container p-4 border">
+  
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre usuario:</label>
+      <input id="nombre" type="text" class="form-control" formControlName="nombre">
+      <div *ngIf="formularioBienvenida.get('nombre')?.invalid" class="text-danger">
+        <p>El nombre debe tener al menos 3 caracteres.</p>
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos:</label>
+      <input id="apellidos" type="text" class="form-control" formControlName="apellidos">
+      <div *ngIf="formularioBienvenida.get('apellidos')?.invalid" class="text-danger">
+        <p>Los apellidos deben tener al menos 3 caracteres.</p>
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="edad" class="form-label">Edad:</label>
+      <input id="edad" type="number" class="form-control" formControlName="edad">
+      <div *ngIf="formularioBienvenida.get('edad')?.invalid" class="text-danger">
+        <p>La edad debe ser mayor o igual a 17.</p>
+      </div>
+    </div>
+  
+    <div class="form-input mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" type="email" class="form-control" formControlName="email">
+      <div *ngIf="formularioBienvenida.get('email')?.invalid" class="text-danger">
+        <p>Introduce un email válido.</p>
+      </div>
+    </div>
+  
+    <div class="form-check mb-3">
+      <input id="condiciones" type="checkbox" class="form-check-input" formControlName="condiciones">
+      <label for="condiciones" class="form-check-label">Acepto los términos y condiciones</label>
+      <div *ngIf="formularioBienvenida.get('condiciones')?.invalid" class="text-danger">
+        <p>Debes aceptar las condiciones para registrarte.</p>
+      </div>
+    </div>
+  
+    <button class="btn btn-primary w-100" [disabled]="formularioBienvenida.invalid" type="submit">Registrarse</button>
+  
+  </form>

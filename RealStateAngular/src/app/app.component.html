@@ -1,11 +1,11 @@
 <main>
   <!-- Le cambio el link a la imagen como tal, si no no puedo poner el otro en la cabezera -->
-  <header class="brand-name">
+  <header class="brand-name d-flex justify-content-between">
     <a [routerLink]="['/']">
       <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
     </a>
     <!-- Link que nos lleva al formulario -->
-    <a [routerLink]="['/formulario']">Formulario</a>
+    <button class="primary d-flex align-items-center" [routerLink]="['/formulario']">Formulario</button>
   </header>
   <section class="content">
     <router-outlet></router-outlet>
